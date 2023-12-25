@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Trek</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main">
+        <header>
+            <div class="logo">
+                <i class='bx bx-notepad' ></i>ToDo Trek
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="yourlist.html">Your List</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="add" id="">
+                <i class='bx bxs-message-square-add' onclick="addnote()"></i>
+            </div>
+            <div class="menu" id="menu">
+                <i class='bx bx-menu'></i>
+            </div>
+            
+        </header>
+        <hr>
+        <div class="hero">
+            <div class="left">
+                <h3>ToDo Trek</h3>
+                <h1>Your <span>to-do list,</span></h1>
+                <h1><span>your</span> way</h1>
+                <p>"Do you have a lot on your plate? Are you feeling overwhelmed? Our to-do list website can help you get organized and stay on track. With our easy-to-use interface.</p>
+                <div class="btn">
+                <button class="btn1" onclick="addnote()">Add Note</button>
+                <button class="btn2" onclick="yournote()">Your Note</button>
+            </div>
+            </div>
+            <div class="right">
+                <img src="boy3.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="todotrek.js"></script>
+</body>
+</html>

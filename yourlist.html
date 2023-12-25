@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="yourlist.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <div class="logo">
+                <i class='bx bx-notepad'></i>ToDo Trek
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Your List</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="add">
+                <i class='bx bxs-message-square-add' onclick="addnote()"></i>
+            </div>
+            <div class="menu" id="menu">
+                <i class='bx bx-menu'></i>
+            </div>
+
+        </header>
+        <hr>
+        <div class="hero">
+
+            <div class="yourlist" id="tableBody">
+
+                <!-- <div class="list">
+                    <div class="title">
+                        <h3><span>titleis nice</span></h3>
+                    </div>
+                    <div class="box">
+                        <i class='bx bxs-show eye' id="eye"></i>
+                        <i class='bx bxs-edit' id="edit"></i>
+                        <i class='bx bxs-trash' id="delete"></i>
+                    </div>
+
+                </div>
+                <img src="bg.jpeg" alt=""> -->
+            </div>
+        </div>
+    </div>
+    <script src="todotrek.js"></script>
+    <script>
+
+
+        tableBody = document.getElementById('tableBody')
+        let str = ''
+        itemJsonArraytemp = localStorage.getItem('itemsJson')
+        itemJsonArray = JSON.parse(itemJsonArraytemp);
+        itemJsonArray.forEach((element, index) => {
+            str += `
+            
+        <div class="list" id="tableBody">
+            
+                    <div class="title" >
+                        <h3>${element[0]}</h3>
+                    </div>
+                    <div class="box">
+                        <i class='bx bxs-show eye' id="eye" onclick="fullview(${index})"></i>
+                        <i class='bx bxs-edit' id="edit" onclick="editlist(${index})"></i>
+                        <i class='bx bxs-trash' id="delete" onclick = "del(${index})"></i>
+                    </div>
+                    
+                </div>
+        `
+
+        });
+        tableBody.innerHTML = str;
+
+        function del(itemIndex) {
+            if (confirm('Are you sure to delete List...')) {
+                console.log("delete...")
+                itemJsonArraytemp = localStorage.getItem('itemsJson')
+                itemJsonArray = JSON.parse(itemJsonArraytemp);
+                itemJsonArray.splice(itemIndex, 1)
+                localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+                location.reload()
+            }
+
+        }
+        function editlist(itemIndex) {
+
+            localStorage.setItem('index', JSON.stringify(itemIndex))
+            location.replace("editlist.html")
+        }
+        window.localStorage.href = "editlist.html"
+        window.localStorage.href = "fullview.html"
+        function fullview(itemIndex) {
+            localStorage.setItem('index', JSON.stringify(itemIndex))
+            location.replace("fullview.html")
+        }
+
+    </script>
+</body>
+
+</html>

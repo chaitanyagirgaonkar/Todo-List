@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="addnote.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- <script src="todotrek.js"></script> -->
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <div class="logo">
+                <i class='bx bx-notepad'></i>ToDo Trek
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="yourlist.html">Your List</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="add">
+                <i class='bx bxs-message-square-add' onclick="addnote()"></i>
+            </div>
+            <div class="menu" id="menu">
+                <i class='bx bx-menu'></i>
+            </div>
+
+        </header>
+        <hr>
+        <div class="hero">
+            <div class="addnote">
+                <h2>Edit Note</h2>
+                <label for="Title" class="inputtext">Title</label><br>
+                <input type="text" class="inputtitle" id="title" aria-describedby="emailHelp"
+                    placeholder="Write a Title here"><br>
+                <label for="Description" class="inputtext">Description</label><br>
+                <textarea class="inputdescription" placeholder="Write a Description here"
+                    id="description"></textarea><br>
+
+                <div class="btn">
+                    <button id="add" onclick="subedit(ti,de,ind)">Edit Note</button>
+                    <!-- <button onclick="cleared()">Clear</button> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="todotrek.js"></script>
+    <script>
+        indextemp = localStorage.getItem('index')
+        ind = JSON.parse(indextemp);
+        itemJsonArraytemp = localStorage.getItem('itemsJson')
+        itemJsonArray = JSON.parse(itemJsonArraytemp);
+        console.log(typeof (ind))
+        const BreakError = {};
+
+        try {
+
+            itemJsonArray.forEach((element, index) => {
+                console.log(ind)
+                ti = document.getElementById('title').value = element[0]
+                de = document.getElementById('description').value = element[1]
+                if (ind == index) {
+                    throw BreakError;
+                }
+            });
+        } catch (err) {
+            if (err !== BreakError) throw err;
+        }
+        function subedit(tit, des, ind) {
+            console.log(tit)
+            console.log(des)
+            tit = document.getElementById('title').value
+            des = document.getElementById('description').value
+            console.log(tit)
+            console.log(des)
+            itemJsonArraytemp = localStorage.getItem('itemsJson')
+            itemJsonArray = JSON.parse(itemJsonArraytemp);
+            itemJsonArray[ind] = [tit, des]
+            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+            location.replace("yourlist.html")
+        }
+
+
+    </script>
+</body>
+
+</html>

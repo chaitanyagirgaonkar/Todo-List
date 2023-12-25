@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="addnote.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- <script src="todotrek.js"></script> -->
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <div class="logo">
+                <i class='bx bx-notepad'></i>ToDo Trek
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="yourlist.html">Your List</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="add">
+                <!-- <i class='bx bxs-message-square-add'></i> -->
+            </div>
+            <div class="menu" id="menu">
+                <i class='bx bx-menu'></i>
+            </div>
+
+        </header>
+        <hr>
+        <div class="hero">
+            <div class="addnote">
+                <h2>Add Note</h2>
+                <label for="Title" class="inputtext">Title</label><br>
+                <input type="text" class="inputtitle" id="title" aria-describedby="emailHelp"
+                    placeholder="Write a Title here"><br>
+                <label for="Description" class="inputtext">Description</label><br>
+                <textarea class="inputdescription" placeholder="Write a Description here"
+                    id="description"></textarea><br>
+
+                <div class="btn">
+
+                    <button id="add">Add Note</button>
+                    <button onclick="cleared()">Clear</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="todotrek.js"></script>
+    <script>
+        add = document.getElementById('add')
+        add.addEventListener("click", () => {
+            tit = document.getElementById('title').value;
+            desc = document.getElementById('description').value;
+            if (document.getElementById('title').value && document.getElementById('description').value != null) {
+                if (localStorage.getItem('itemsJson') == null) {
+                    itemJsonArray = [];
+                    itemJsonArray.push([tit, desc]);
+                    localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+                }
+                else {
+                    itemJsonArrayStr = localStorage.getItem('itemsJson')
+                    itemJsonArray = JSON.parse(itemJsonArrayStr)
+                    itemJsonArray.push([tit, desc]);
+                    localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+
+                }
+                document.getElementById('title').value = null;
+                document.getElementById('description').value = null;
+                yournote();
+                window.localStorage.href = "yourlist.html"
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

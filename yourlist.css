@@ -1,0 +1,96 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,400;1,200&family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto:wght@500&display=swap');
+
+:root {
+    --headcolor: #8e43e7;
+    --link: #3f3a64;
+    --text: #696969;
+    --hero: rgba(147, 107, 232, 0.05);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'josefin sans', sans-serif;
+}
+
+.yourlist{
+    width: 60%;
+    height: 450px;
+    /* border: 2px solid black; 
+    border-radius: 10px;  */
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    
+    
+    
+}
+.yourlist img{
+    width: 400px;
+    height: 400px;
+    margin-left: 200px;
+}
+.hero h2{
+    text-align: center;
+    color: var(--headcolor);
+    text-decoration: underline;
+    font-size: 10px;
+}
+.list{
+    border: 2px solid #e3e3e3;
+    width: 85%;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 55px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--hero);
+    display: flex;
+    justify-content: space-between;
+}
+.list:hover{
+    border: 2px solid var(--headcolor);
+    border-radius: 10px;
+}
+.title {
+    margin-top: 8px;
+    margin-left: 20px;
+    font-size: 18px;
+    
+}
+.box{
+    display: flex;
+    font-size: 25px;
+    color: var(--headcolor);
+    margin-top: 6px;
+    gap: 3px;
+    margin-right: 4px;
+}
+.eye{
+    font-size: 29px;
+    cursor: pointer;
+    margin-top: -2px;
+}
+#edit{
+    cursor: pointer;
+}
+
+#delete{
+    cursor: pointer;
+}
+
+.eye:hover{
+    color: #802de6;
+}
+#edit:hover{
+    color: #802de6;
+}
+
+#delete:hover{
+    color: #802de6;
+}
+

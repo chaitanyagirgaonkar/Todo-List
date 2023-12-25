@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="yourlist.css">
+    <link rel="stylesheet" href="fullview.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <div class="logo">
+                <i class='bx bx-notepad'></i>ToDo Trek
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="yourlist.html">Your List</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="add">
+                <i class='bx bxs-message-square-add' onclick="addnote()"></i>
+            </div>
+            <div class="menu" id="menu">
+                <i class='bx bx-menu'></i>
+            </div>
+
+        </header>
+        <hr>
+        <div class="hero">
+            <div class="fulllist">
+                <i class='bx bx-arrow-back' onclick='back()'></i>
+                <h2 id="t">Title</h2>
+                <br>
+
+                <p id="d">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, consequatur explicabo sit iste
+                    praesentium officiis tempora eos, error sint obcaecati in illo laborum provident pariatur cumque
+                    sequi, delectus minima natus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi non, ipsam dolorum ullam quam, sapiente libero incidunt voluptates suscipit optio asperiores placeat omnis eius unde voluptatem quaerat! Officia atque perspiciatis provident laboriosam porro labore. Molestiae temporibus perspiciatis et mollitia tenetur vel commodi quis minus ducimus sint cupiditate ex accusantium architecto consequuntur voluptatum officiis nobis deserunt quisquam iste porro explicabo, fuga autem aspernatur debitis. Rerum blanditiis ex, reprehenderit doloribus, deserunt iste rem reiciendis sequi in tempore aperiam quidem alias. Dolor porro obcaecati at quas eligendi nam quibusdam ratione soluta nostrum non repellat, officia eveniet quos, vitae recusandae illum. Voluptatum, quas quidem.</p>
+            </div>
+        </div>
+        <script src="todotrek.js"></script>
+        <script>
+            function back() {
+                location.replace("yourlist.html")
+            }
+            indextemp = localStorage.getItem('index')
+            ind = JSON.parse(indextemp);
+            itemJsonArraytemp = localStorage.getItem('itemsJson')
+            itemJsonArray = JSON.parse(itemJsonArraytemp);
+            const BreakError = {};
+
+        try {
+
+            itemJsonArray.forEach((element, index) => {
+                console.log(ind)
+                ti = document.getElementById('t').innerText = element[0]
+                de = document.getElementById('d').innerText = element[1]
+                if (ind == index) {
+                    throw BreakError;
+                }
+            });
+        } catch (err) {
+            if (err !== BreakError) throw err;
+        }
+     
+        </script>
+</body>
+
+</html>
